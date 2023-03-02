@@ -1,0 +1,198 @@
+# Introduction to Convolutional Network
+Began with LeCun et al. 1989
+- Why convnets
+	- E.g. An image with $1140\times648 = 745,200$ pixels
+	- A standard neural net need 100 hidden units: $74,520,000$ input
+- Properties of the visual world, or, *assumptions*
+	- Four important properties:
+		1. *Locality*: nearby pixel correlate the most with nearby pixels - not pixels far away
+		2. *Stationary Statistics*: the statistics of pixels are relatively uniform across the image - if a feature is useful in one place, it's useful in others
+		3. *Translation invariance*: Identity of an object (usually) doesn't depend on its location in the image
+		4. *Compositionality*: Objects are made of parts ->  receptive fields gets larger deeper in the net 
+- Receptive fields
+	- In neuroscience a *receptive field* refers to both:
+		- The size of the visual world that innervates the neuron
+		- The visual features in that part of the visual world that most stimulate that neuron
+	- We use the first meaning; for the second we call the features or kernels or filter
+- ### Overview of Convnets
+	- Feed-forward
+		- **Convolve** input: Dot product of the filter and input data
+		- Non-linearity
+		- Pooling
+	- Supervised
+	- Train convolutional filters by back prop. classification error
+- ### Each Layer's Component:
+	- First layer: filtering
+		- Convolution:
+			- Filter is learned during training
+			- Same filter at each location
+		- Local: Each unit layer looks at local window
+		- Static statistics: Same feature computed everywhere
+	- Non-Linearity: RuLU
+		- Applied per-pixel, output = max(0, x)
+		- Easy to compute the gradient (0/1)
+		- Other choices:
+			- Tanh, Sigmoid, PReLU, GeLU, ELU, Swish: x\*sigmoid(x)
+	- Spatial Pooling:
+		- Gives invariances to small transformations
+		- Larger receptive fields (see more inputs)
+		- Computation:
+			- Max is best empirically
+			- Sum of avg
+			- Applied to each filter layer separately
+		- Stride: How far to slide over each time
+			- *Tiling* is pretty standard - no overlap: 2x2 with a stride of 2
+			- *Overlapping* pooling: 3x3 with a  stride of 2
+- ### Normalization across Data
+	- Batch Normalization
+- ### Architecture
+	- Big issue: how to select metaparameters?
+		- manual tuning of architectures
+			- Depth
+			- Width, stride, zero-padding of convolutions
+			- Overall parameter count
+			- \# layers, feature maps & their params
+			- Cross-validation
+			- Grid search (lots of GPU)
+	- Better: random search
+	- Fortunately, some "best practices":
+		- Width: 3x3
+		- Stride: 1
+		- Zero-padding: 1
+		- Leads to same size output
+	- *Stack convolutions without pooling, then* use max pooling:
+		- Why?
+			- Because otherwise you are doing a seq of single-layer networks before pooling (lossing info by max)
+			- If you have 2 layers before pooling: you can do XOR of features
+		- So, compute features of fetures - nonlinear
+			- Why nonlinearity? 
+				- Multiple linear layers are eventually equilavent to ONE linear layer
+				- Universal approx. theory requires combination of nonlinear layers, as we are predicting nonlinear decision boundary
+		- Then use sampling to change size
+		- E.g. conv -> conv -> pooling
+	- BUT an even better (🤔) way: transfer learning
+		- Use a pretrained version of the current best imagenet network to extract features
+		- Bolt on a new softmax layer (classifier) for your problem
+		- Fine-tune it
+		- Need only small dataset
+- ### How important is depth?
+	- E.g. Architect of Krizhevsky et al.: try dropping layers and see performance diff
+		- 8 layers trained on Imagenet dataset
+		- Dropping convolutional layer saves **less** than fully connected
+			- Why? Convnet shares params across the whole inputs -> less params needed
+		- Result: Depth of network is *key*
+- ### Summary
+	- CNN structure is comprised of:
+		- A conv layer of replicateed feature maps (usually small features, e.g. 3x3)
+		- A nonlinearity applied (usually ReLU)
+		- An optional pooling layer (usually max pooling, 2x2 stride 2)
+		- Batch normalization
+	- Depth matters. Allows features of features of features to be learned -> gets more abstract
+		- Deeper networks are usually better, as long as they allow the gradient to pass backwards easily
+	- It is often best to simply re-use a pre-trained network to compute the features of the images, and then add a softmax for categorization, or logistic units for tagging
+	- Convnets use four principles: locality, stationary statistics, translation invariance, receptive fields
+- Question!
+	- Does more params means better performance?
+		- No! Generally it helps, but architecture is more important
+- # Continue to CNN
+- #### Image Augmentation
+	- Translation in input results in
+		- Sharp distance in activations (feature maps) on the first layer
+		- Smoother distance on repr. on the later layers
+		- => Architecture makes it invariant!
+	- Scaling: Similar!
+	- Rotation: No!
+		- Could add some rotation invariant layer -> max pooling of rotated inputs?
+- ### How do we design deep networks?
+	- Very Deep Models:
+		- AlexNet: So big he couldn't fit in one GPU 
+			- included a bunch of innovations been used ever since:
+				- Dropout
+				- Data augmentation
+				- ReLU
+	- Design one modular structure and add more of them!
+		- Lots of 3x3 conv layers: more nonlinearity than one 7x7
+		- Close to SOA results on Imagenet
+		- Hard to train since deeper means further to be propagated backward
+		- HOWEVER! Deeper gets better results, in contract with what we thought of. People are studing on this...
+	- Network-in-network
+		- Add two per-pixel fully-connected layers before pooling
+	- Global avg pooling: Each last layer's feature connects only to one category
+		- Replace the final fully-connected layer: One feature map per category
+		- Allows to see where the network is looking!
+		- Usually doesn't work quite as well as fully connected final layer, but 
+- ### To prepare you for GoogLeNet
+	- Note that 1x1 conv are possible - equivalent to a dot product
+		- E.g. 1x1 conv each 1x1x64, with 32 filters. Each 1x1 conv performs a 64 dimensional dot product) => Results in 64 -> 32 channels
+		- Reduce the overall number of numbers
+- ### GoogLeNet
+	- Multiple filter scales at each layer: learns features at diff scales
+	- 1x1 conv allows control of dimensionality to keep computational requirements down
+	- Having multiple softmax at different level - trying to recognize the same object multiple times
+		- Obtain a shorter path for gradient updates!
+	- Increase the dimensionality further deeper -> intuition: if got 1000 categories we should have 1000 units by the time get there
+	- Deep but cheap. 22 layers vs 8 layers by Krizhevsky, but only twice as much computation involved
+- ### Residual Networks(ResNet):
+	- Really deep convnets don't train well, because of vanishing gradient when getting close to the input
+	- Thus only the residual of the input and the output needs to be learned!
+		- One-to-one connection from the input x to the output $f(x)$ 
+			- $f(x)+\alpha x$
+			- $f(x):x\rightarrow\text{weight layer}\rightarrow ReLU\rightarrow\text{weight layer}$ 
+			- The ratio $\alpha$ can be learned from initially 0
+		- We have two layer of weights (one hidden layer)
+		- Network: how to change the input to have a better output?
+		- The gradient don't change!
+- ### State of the Art at the time: GoogLeNet + ResNet
+- ### Visualizing Convnets
+	- Want to know what they are learning
+	- Raw coefficients of learned filters in higher layers difficult to interpret
+	- Two classes of method:
+		- Project activations back to pixel space
+			- Zero out all non-max features, take max activation from feature map, pass back (reconstruction) from the higher layers to the input layer to get the visualization
+			- ![[Pasted image 20230211005147.png]]
+		- Optimize input image to maximize a particular feature map or class
+			- Take the derivative of an output and backpropagate to the input to maximize that output
+			- Depends on the initial values (inputs)
+- ### Adversarial
+	- Random sample + *sign of the gradient of the panda output wrt the cost function*, back-propagated to the input, makes the sample panda! 
+	- The adversarial distort is linear wrt the weights
+	- ![[Pasted image 20230211012048.png]]
+	- #### Possible defenses?
+		- Mask CNN gradients
+		- Traning on adversarial examples
+		- Traning a separate classifier to detect adversarial inputs and block them from the CNN input
+- ### Train big ConvNets
+	- #### SGD
+		- Minibatch: compute noisy estimate of gradient
+		- Adam optimizer
+		- Start with a "big" lr and anneal it
+		- Momentum
+	- #### Things good to know:
+		- Hidden units should be sparse across samples and across features
+		- Learned filters should exhibit struture and uncorrelated  
+		- Look at the data!
+			- It should makes sense, be normalized, remove outliers or mistakes
+			- Want feature maps to be uncorrelated and have high variance 
+			- Measure error on both training and validation set
+			- Before wasting time: test on a small subset of the data and check the error -> 0
+	- #### What if it doesn't work?
+		- Training diverges -> decrease lr
+		- Network underperforming
+			- Larger net (recommendations in EfficientNet paper)
+			- Visualize hidden units/params -> fix optimization
+		- Network too slow
+			- Use matrix instead of for loop
+- ### Summary
+	- Look at various invariances:
+		- Translation: good, could be built in to the network
+		- Scale: good, learned from data, could be built in to the network
+		- Rotation: not good, could be built in to the network
+	- Structures of very deep models:
+		- VGG, GoogleNet, ResNet
+	- Visualization:
+		- Deconvolution
+		- Gradient descent back
+	- Adversarial 
+		- Using the network(gradients)
+		- Universal adversarial examples: Keep moving the directions away from gradient for each image
+	- Some training tips
