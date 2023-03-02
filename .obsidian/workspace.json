@@ -1,0 +1,186 @@
+{
+  "main": {
+    "id": "76d55e7955ee21f6",
+    "type": "split",
+    "children": [
+      {
+        "id": "28c3c4fff6603cf3",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e1e8a73895619c6d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "4 Recurrent Neural Networks.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "3a00d18416d8b3c4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "PAs/PA4 - Individual Part.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "909d2c3b790b086a",
+    "type": "split",
+    "children": [
+      {
+        "id": "9996257f0d978c39",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "31338cb01fd53d10",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "4221c2150869c31f",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "vanish",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "93eb8945fa25c3b8",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "4a270d523dd50ff2",
+    "type": "split",
+    "children": [
+      {
+        "id": "55554310dbe577a5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c773369e89454bfc",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "4 Recurrent Neural Networks.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "c61bd79bad8d028c",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "4 Recurrent Neural Networks.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "1c50d3a297e05ecb",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "ed828bb3e0a24e1a",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "4 Recurrent Neural Networks.md"
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "31338cb01fd53d10",
+  "lastOpenFiles": [
+    "5 Attention, Neural Turing Machine and Transformers.md",
+    "4 Recurrent Neural Networks.md",
+    "PAs/PA4 - Individual Part.md",
+    "3 Convolutional Network.md",
+    "2 Ways to Train a Proper Model.md",
+    "images/Pasted image 20230226164856.png",
+    "images/Pasted image 20230226190139.png",
+    "1 Supervised Learning on Feedforward Neural Nets.md",
+    "images/Pasted image 20230226190138.png",
+    "images/Pasted image 20230226185350.png",
+    "images/Pasted image 20230226165659.png",
+    "images/Pasted image 20230225211000.png",
+    "Logistics.md",
+    "images/Pasted image 20230226154944.png",
+    "images/Pasted image 20230226152351.png",
+    "images/Pasted image 20230226151929.png",
+    "images/Pasted image 20230226123651.png",
+    "PAs/PA3 - Individual Part.md",
+    "PAs",
+    "PAs/PA2 - Individual Part.md",
+    "PAs/PA1 - Individual Part.md"
+  ]
+}
