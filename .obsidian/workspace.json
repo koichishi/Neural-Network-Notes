@@ -4,34 +4,33 @@
     "type": "split",
     "children": [
       {
-        "id": "28c3c4fff6603cf3",
+        "id": "73f057631dc7e049",
         "type": "tabs",
         "children": [
           {
-            "id": "e1e8a73895619c6d",
+            "id": "7bb52068b7f05868",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4 Recurrent Neural Networks.md",
+                "file": "Machine Learning/Stanford Webinar - GPT-3 & Beyond.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "3a00d18416d8b3c4",
+            "id": "29cd8d48751c9cde",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "PAs/PA4 - Individual Part.md",
-                "mode": "source",
-                "source": false
+                "file": "Database Impl/images/Pasted image 20230307161117.png"
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -60,7 +59,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "vanish",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -97,7 +96,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "4 Recurrent Neural Networks.md",
+                "file": "Database Impl/images/Pasted image 20230307161117.png",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +113,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "4 Recurrent Neural Networks.md",
+                "file": "Database Impl/images/Pasted image 20230307161117.png",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,7 +136,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "4 Recurrent Neural Networks.md"
+                "file": "Database Impl/images/Pasted image 20230307161117.png"
               }
             }
           }
@@ -161,26 +160,34 @@
   },
   "active": "31338cb01fd53d10",
   "lastOpenFiles": [
-    "5 Attention, Neural Turing Machine and Transformers.md",
-    "4 Recurrent Neural Networks.md",
-    "PAs/PA4 - Individual Part.md",
-    "3 Convolutional Network.md",
-    "2 Ways to Train a Proper Model.md",
-    "images/Pasted image 20230226164856.png",
-    "images/Pasted image 20230226190139.png",
-    "1 Supervised Learning on Feedforward Neural Nets.md",
-    "images/Pasted image 20230226190138.png",
-    "images/Pasted image 20230226185350.png",
-    "images/Pasted image 20230226165659.png",
-    "images/Pasted image 20230225211000.png",
-    "Logistics.md",
-    "images/Pasted image 20230226154944.png",
-    "images/Pasted image 20230226152351.png",
-    "images/Pasted image 20230226151929.png",
-    "images/Pasted image 20230226123651.png",
-    "PAs/PA3 - Individual Part.md",
-    "PAs",
-    "PAs/PA2 - Individual Part.md",
-    "PAs/PA1 - Individual Part.md"
+    "Database Impl/Query Processing.md",
+    "Database Impl/images",
+    "cd739fb662c3938c39a1517cb33f5ab.jpg",
+    "Database Impl/images/Pasted image 20230307161117.png",
+    "Machine Learning/Logistics.md",
+    "Database Impl",
+    "Machine Learning/1 Supervised Learning on Feedforward Neural Nets.md",
+    "Machine Learning",
+    "Database Impl/images/Pasted image 20230307171143.png",
+    "Database Impl/images/Pasted image 20230307171047.png",
+    "Database Impl/images/Pasted image 20230307171026.png",
+    "Database Impl/images/Pasted image 20230307171018.png",
+    "Database Impl/images/Pasted image 20230307170959.png",
+    "Database Impl/images/Pasted image 20230307170940.png",
+    "Database Impl/images/Pasted image 20230307170248.png",
+    "Database Impl/images/Pasted image 20230307170058.png",
+    "Machine Learning/Stanford Webinar - GPT-3 & Beyond.md",
+    "squared error.md",
+    "Machine Learning/7 Generative Adversarial Networks.md",
+    "Machine Learning/6 Reinforcement Learning.md",
+    "Machine Learning/5 Attention, Neural Turing Machine and Transformers.md",
+    "Machine Learning/4 Recurrent Neural Networks.md",
+    "Machine Learning/3 Convolutional Network.md",
+    "Machine Learning/PAs/PA4 - Individual Part.md",
+    "Machine Learning/2 Ways to Train a Proper Model.md",
+    "Machine Learning/PAs/PA3 - Individual Part.md",
+    "Machine Learning/PAs",
+    "Machine Learning/PAs/PA2 - Individual Part.md",
+    "Machine Learning/PAs/PA1 - Individual Part.md"
   ]
 }

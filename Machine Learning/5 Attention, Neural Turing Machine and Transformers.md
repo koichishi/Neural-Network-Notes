@@ -81,6 +81,20 @@ The [long short-term memory network](https://arxiv.org/pdf/1601.06733.pdf) pap
 	\end{align}
 	$$
 	Why two steps? Because the memory is a bunch of linear neurons. There are no *overwrite* operation
+
+#### Summary
+- NTM is a RNN augmented by a memory
+- The network can learn to use the memory - because it is end-to-end differentiable, so it can be trained completely by BPTT
+- The NTM can learn algo from examples of desired input-output sequences!
+- Recent work has extended this paradigm
+
+#### The Big Questions
+- How long before this research leads to model that can:
+	- reason
+	- reflect: self-awareness
+	- build internal models of itself and other people
+	- before it can have what psychologists call "theory of mind" - I know that you know that I know... (?)
+
 # Transformers: Attension is all you need! 
 [“Attention is All you Need”](http://papers.nips.cc/paper/7181-attention-is-all-you-need.pdf) is one of the most impactful and interesting paper in 2017. It presented a lot of improvements to the *soft attention* and make it possible to do seq2seq modeling _without_ recurrent network units. The proposed “**transformer**” model is entirely built on the self-attention mechanisms without using sequence-aligned recurrent architecture.
 (Nice blogs! [Attention? Attention!](https://lilianweng.github.io/posts/2018-06-24-attention/) [The Illustrated Transformer](http://jalammar.github.io/illustrated-transformer/); The Stanford cs231n [slides](chrome-extension://cdonnmffkdaoajfknoeeecmchibpmkmg/assets/pdf/web/viewer.html?file=http%3A%2F%2Fcs231n.stanford.edu%2Fslides%2F2022%2Flecture_11_ruohan.pdf) and [git repo](https://github.com/cs231n/cs231n.github.io/blob/master/transformers.md))
@@ -155,6 +169,7 @@ The encoder generates an attention-based representation
 - Both the source and target sequences first go through embedding layers to produce data of the same dimension $d=512$.
 - To preserve the position information, a sinusoid-wave-based positional encoding is applied and summed with the embedding output.
 - A softmax and linear layer are added to the final decoder output to classify word output.
+- Masked Multi-Head Attention only looks at the positions in previous, not the future
 
 ## Summary
 - Use **parallel computation** at every level of the encoder - fast to train 

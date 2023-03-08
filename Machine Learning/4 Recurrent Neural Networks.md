@@ -22,7 +22,7 @@
 			- An unrolled SRN:
 			![[Pasted image 20230225141002.png]]
 		- These networks can be used for many things, but SRNs typically are used for *prediction*
-	- This is theoretically simple, and it is a *temporal* autoencoder ==what==
+	- This is theoretically simple, and it is a *temporal* autoencoder
 	- #### Types of #rnnproblems
 		1. Prediction on the next word/pixel
 		2. Seq generation: produce a word or sentence, caption an image
@@ -47,7 +47,7 @@
 			- Now update (for example ) $W_3$, the weight from A to B as the avg of all of the weight changes: $$W_3\ +=\alpha\frac{1}{3}\sum^{3}_{t=1}\delta_B(t)z_A(t-1)$$
 	- #### But RNN are hard to train at that time, LSTMs fixed this issue. Why?
 		- In the forward pass we use nonlinear functions, which tends to limit the range of activations
-		- The **backward pass is linear**. If double the error derivatives at the final layer, all the error derivatives will double! ==makes sense but isnt that the same as normal FNN?==
+		- The **backward pass is linear**. If double the error derivatives at the final layer, all the error derivatives will double! 
 	- #### The problem of exploding or vanishing gradients
 		- What happens to the magnitude when backprop?
 			- Weights grows/shink exponentially through layers
@@ -69,7 +69,7 @@
 				- Others are input or hidden units
 	- Examples:
 		- Language generation
-		- Addition ==kinda vague... maybe too fast. is it important after all?==
+		- Addition
 	- ## [LSTM](https://colah.github.io/posts/2015-08-Understanding-LSTMs/)
 		- The name of LSTM RNN refers to the analogy that a standard RNN has both "long-term" and "short-term" memories
 		- #### Implementing a memory cell in a nerual network
